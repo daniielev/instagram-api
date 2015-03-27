@@ -24,10 +24,20 @@ $(document).ready(function () {
             dataType: "jsonp",
             success : function (api) {
                 console.log(api);
-                if (api.meta.code === 200) {
+                if (api.meta.code === 200 && api.data.length > 0) {
                     getData(api);
                 } else {
-                    $(formData.output).text(api.meta.error_message);
+                    if ( api.meta.code === 200 api.data.length <= 0) {
+                        $(formData.output).text("There are no photos under the hashtag: #" + formData.hashtag)
+                                          .parent()
+                                          .removeClass("alert-danger alert-hide")
+                                          .addClass("alert-warning alert-show");
+                    } else {
+                        $(formData.output).text(api.meta.error_message + ": #"+ formData.hashtag)
+                                          .parent()
+                                          .removeClass("alert-hide")
+                                          .addClass("alert-show");
+                    }
                     activateForm();
                 }
             },
@@ -54,6 +64,10 @@ $(document).ready(function () {
                     href   : api.data[i].link,
                     target : "_blank"
                 });
+
+                if (formData.size === "thumbnail") {
+                    img.addClass("img-thumbnail");
+                }
 
                 img.attr({
                     src    : api.data[i].images[formData.size].url,
