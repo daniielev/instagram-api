@@ -1,0 +1,8 @@
+*, *::after, *::before {
+    transition: all .2s linear;
+}
+
+#slider img {
+    display: inline-block;
+    margin: .5em;
+}
