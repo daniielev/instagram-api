@@ -4,10 +4,60 @@
         <meta charset="UTF-8">
         <title>Instagram API ~ Daniel Munoz</title>
         <meta name="author" content="Daniel Muñoz">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <!-- token -->
+        <!-- 1794656714.1677ed0.956c7dfe26ca48efa6c2fc44ae86029a -->
     </head>
-    <body>
-        <div id="api"></div>
-        <script src="js/jquery.min.js"></script>
+    <body class="container">
+        <div class="col-md-6">
+            <form class="form-horizontal">
+                <fieldset>
+                <legend>Get your Slider!</legend>
+                <!-- Hashtag -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="txt_hashtag">Hashtag #</label>
+                  <div class="col-md-4">
+                  <input id="txt_hashtag" name="txt_hashtag" type="text" class="form-control input-md">
+                  </div>
+                </div>
+                <!-- Image Size -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="txt_size">Resolution</label>
+                  <div class="col-md-4">
+                    <select id="txt_size" name="txt_size" class="form-control">
+                      <option value="standard_resolution" selected>Standart</option>
+                      <option value="thumbnail">Thumbnail</option>
+                      <option value="low_resolution">Low</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- Quantity -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="txt_quantity">Quantity</label>
+                  <div class="col-md-4">
+                  <input id="txt_quantity" readonly value="5" name="txt_quantity" type="text" placeholder="5" class="form-control input-md">
+                  <span class="help-block">Only numbers</span>
+                  </div>
+                </div>
+                <!-- Token -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="txt_token">Token</label>
+                  <div class="col-md-4">
+                  <input id="txt_token" value="1794656714.1677ed0.956c7dfe26ca48efa6c2fc44ae86029a" name="txt_token" type="text" readonly class="form-control input-md">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="btn_submit"></label>
+                  <div class="col-md-4">
+                    <button id="btn_submit" name="btn_submit" class="btn btn-success">Submit</button>
+                  </div>
+                </div>
+                </fieldset>
+            </form>
+        </div>
+        <div id="slider" class="col-md-6"></div>
+        <script src="js/jquery-1.11.2.min.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>
