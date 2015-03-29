@@ -2,6 +2,11 @@
     transition: all .5s linear;
 }
 
+.h1, h2, h3, h4, h5, h6, .navbar-brand, .brand-name {
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+}
+
 #slider img {
     margin: .5em;
 }
@@ -14,4 +19,32 @@
 .alert-show {
     opacity: 1;
     visibility: visible;
+}
+
+.marquee {
+    padding: 50px 0;
+    text-align: center;
+    color: #fff;
+    background-color: #b84d45;
+    background-image: url("../img/bg.png");
+}
+
+.marquee .brand-name {
+    display: block;
+    font-size: 50px;
+    line-height: 1;
+}
+
+@media (min-width: 768px) {
+    .marquee {
+        padding: 150px 0;
+    }
+
+    .marquee .brand-name {
+        font-size: 80px;
+    }
+}
+
+@media (min-width: 768px) {
+
 }

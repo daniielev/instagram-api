@@ -27,7 +27,7 @@ $(document).ready(function () {
                 if (api.meta.code === 200 && api.data.length > 0) {
                     getData(api);
                 } else {
-                    if ( api.meta.code === 200 api.data.length <= 0) {
+                    if ( api.meta.code === 200 && api.data.length <= 0) {
                         $(formData.output).text("There are no photos under the hashtag: #" + formData.hashtag)
                                           .parent()
                                           .removeClass("alert-danger alert-hide")
@@ -40,6 +40,8 @@ $(document).ready(function () {
                     }
                     activateForm();
                 }
+
+                $("#fin").text($("#slider").parent().html());
             },
             error   : function (error) {
                 console.log(error);

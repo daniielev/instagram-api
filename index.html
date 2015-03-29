@@ -4,67 +4,118 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Instagram API ~ Daniel Munoz</title>
+        <title>InstaSlider, by Daniel Muñoz</title>
+        <meta name="description" content="Generate your slider using the Instagram API.">
         <meta name="author" content="Daniel Muñoz">
+
+        <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400italic,700italic,400,700" rel="stylesheet" type="text/css">
+
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
+
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body class="container">
-        <div class="col-md-4">
-            <form class="form-horizontal">
-                <fieldset>
-                <legend>Get Your Images!</legend>
-                <!-- Hashtag -->
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="txt_hashtag">Hashtag #</label>
-                  <div class="col-md-8">
-                  <input id="txt_hashtag" name="txt_hashtag" type="text" class="form-control input-md">
-                  </div>
+
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/" class="navbar-brand">InstaSlider</a>
                 </div>
-                <!-- Image Size -->
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="txt_size">Resolution</label>
-                  <div class="col-md-8">
-                    <select id="txt_size" name="txt_size" class="form-control">
-                      <option value="standard_resolution" selected>Standard</option>
-                      <option value="thumbnail">Thumbnail</option>
-                      <option value="low_resolution">Low</option>
-                    </select>
-                  </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                     <ul class="nav navbar-nav">
+                        <li><a href="#">Intro</a></li>
+                        <li><a href="#">Link 2</a></li>
+                        <li><a href="#">Link 3</a></li>
+                        <li><a href="#">Link 4</a></li>
+                     </ul>
                 </div>
-                <!-- Quantity -->
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="txt_quantity">Quantity</label>
-                  <div class="col-md-4">
-                  <input id="txt_quantity" readonly value="5" name="txt_quantity" type="text" placeholder="5" class="form-control input-md">
-                  <span class="help-block">Only numbers</span>
-                  </div>
+            </div>
+        </nav>
+
+        <section class="marquee">
+            <div class="container">
+                <span class="brand-name">InstaSlider</span>
+                <h1>Get your Slider using the Instagram API</h1>
+                <p>Created and Maintained by <a href="https://www.twitter.com/DaniielEV">@daniielev</a></p>
+            </div>
+        </section>
+
+        <main class="container">
+            <div class="row home-intro text-center">
+                <div class="col-lg-12">
+                    <h2 class="tagline">Fully customized and easy to use.</h2>
+                    <hr class="small">
                 </div>
-                <!-- Token -->
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="txt_token">Token</label>
-                  <div class="col-md-8">
-                  <input id="txt_token" value="1794656714.1677ed0.956c7dfe26ca48efa6c2fc44ae86029a" name="txt_token" type="text" readonly class="form-control input-md">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="btn_submit"></label>
-                  <div class="col-md-4">
-                    <button type="submit" id="btn_submit" name="btn_submit" class="btn btn-success">Submit</button>
-                  </div>
-                </div>
-                <div class="alert alert-danger alert-hide" role="alert">
-                  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                  <span class="sr-only">Error:</span>
-                  <span id="output"></span>
-                </div>
-                </fieldset>
-            </form>
-        </div>
+            </div>
+
+            <div class="col-md-4">
+                <form class="form-horizontal">
+                    <fieldset>
+                    <legend>Get Your Images!</legend>
+                    <!-- Hashtag -->
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="txt_hashtag">Hashtag #</label>
+                      <div class="col-md-8">
+                      <input id="txt_hashtag" name="txt_hashtag" type="text" class="form-control input-md" required>
+                      </div>
+                    </div>
+                    <!-- Image Size -->
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="txt_size">Resolution</label>
+                      <div class="col-md-8">
+                        <select id="txt_size" name="txt_size" class="form-control">
+                          <option value="standard_resolution" selected>Standard</option>
+                          <option value="thumbnail">Thumbnail</option>
+                          <option value="low_resolution">Low</option>
+                        </select>
+                      </div>
+                    </div>
+                    <!-- Quantity -->
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="txt_quantity">Quantity</label>
+                      <div class="col-md-4">
+                      <input id="txt_quantity" readonly value="5" name="txt_quantity" type="text" placeholder="5" class="form-control input-md">
+                      <span class="help-block">Only numbers</span>
+                      </div>
+                    </div>
+                    <!-- Token -->
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="txt_token">Token</label>
+                      <div class="col-md-8">
+                      <input id="txt_token" value="1794656714.1677ed0.956c7dfe26ca48efa6c2fc44ae86029a" name="txt_token" type="text" readonly class="form-control input-md">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="btn_submit"></label>
+                      <div class="col-md-4">
+                        <button type="submit" id="btn_submit" name="btn_submit" class="btn btn-success">Submit</button>
+                      </div>
+                    </div>
+                    <div class="alert alert-danger alert-hide" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                      <span class="sr-only">Error:</span>
+                      <span id="output"></span>
+                    </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div id="slider"></div>
+        </main>
+
+
         <div id="slider" class="centered col-md-8"></div>
         <script src="js/jquery-1.11.2.min.js"></script>
         <script src="js/main.js"></script>
