@@ -35,24 +35,24 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                      <ul class="nav navbar-nav">
-                        <li><a href="#">Intro</a></li>
-                        <li><a href="#">Link 2</a></li>
-                        <li><a href="#">Link 3</a></li>
-                        <li><a href="#">Link 4</a></li>
+                        <li><a href="#intro">Intro</a></li>
+                        <li><a href="#demo">Demo</a></li>
+                        <li><a href="#usage">Usage</a></li>
                      </ul>
                 </div>
             </div>
         </nav>
 
-        <section class="marquee">
+        <section id="intro" class="marquee">
             <div class="container">
                 <span class="brand-name">InstaSlider</span>
                 <h1>Get your Slider using the Instagram API</h1>
-                <p>Created and Maintained by <a href="https://www.twitter.com/DaniielEV">@daniielev</a></p>
+                <p>Created and Maintained by Daniel Muñoz</p>
             </div>
         </section>
 
         <main class="container">
+          <section id="demo">
             <div class="row home-intro text-center">
                 <div class="col-lg-12">
                     <h2 class="tagline">Fully customized and easy to use.</h2>
@@ -86,7 +86,7 @@
                     <div class="form-group">
                       <label class="col-md-4 control-label" for="txt_quantity">Quantity</label>
                       <div class="col-md-4">
-                      <input id="txt_quantity" readonly value="5" name="txt_quantity" type="text" placeholder="5" class="form-control input-md">
+                      <input id="txt_quantity" value="5" name="txt_quantity" type="text" class="form-control input-md">
                       <span class="help-block">Only numbers</span>
                       </div>
                     </div>
@@ -94,7 +94,7 @@
                     <div class="form-group">
                       <label class="col-md-4 control-label" for="txt_token">Token</label>
                       <div class="col-md-8">
-                      <input id="txt_token" value="1794656714.1677ed0.956c7dfe26ca48efa6c2fc44ae86029a" name="txt_token" type="text" readonly class="form-control input-md">
+                      <input id="txt_token" value="1794656714.1677ed0.956c7dfe26ca48efa6c2fc44ae86029a" name="txt_token" type="text" class="form-control input-md">
                       </div>
                     </div>
                     <div class="form-group">
@@ -112,11 +112,136 @@
                     </fieldset>
                 </form>
             </div>
-            <div id="slider"></div>
+            <div class="col-md-8 text-center">
+              <div id="slider" class="carousel slide" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                  <div class="item active">
+                    <img src="img/slider/1.jpg" alt="House">
+                    <div class="carousel-caption">
+                      <h3>by <a href="https://instagram.com/p/1EnbiGtvjs/">@chrisarrrrrby</a></h3>
+                    </div>
+                  </div>
+
+                  <div class="item">
+                    <img src="img/slider/2.jpg" alt="Chania">
+                    <div class="carousel-caption">
+                      <h3>Chania</h3>
+                    </div>
+                  </div>
+
+                  <div class="item">
+                    <img src="img/slider/3.jpg" alt="Flower">
+                    <div class="carousel-caption">
+                      <h3>Flowers</h3>
+                    </div>
+                  </div>
+
+                  <div class="item">
+                    <img src="img/slider/4.jpg" alt="Flower">
+                    <div class="carousel-caption">
+                      <h3>Flowers</h3>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#" role="button" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#" role="button" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <section class="container">
+            <div class="row home-intro text-center">
+                <div id="usage" class="col-lg-12">
+                    <h2 class="tagline">How to Use</h2>
+                    <hr class="small">
+                </div>
+            </div>
+            <div class="code col-lg-12">
+              <code class="blackboard">
+                <table cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td class="line-numbers">
+                        <div>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23</div>
+                     </td>
+                      <td>
+                        <div class="javascript">
+                          <span class="line">
+                            <span class="red">$</span><span>(</span><span class="green">"form"</span><span>)</span><span class="red">submit</span><span>(</span><span class="yellow">function</span><span> (<span class="red">e</span>) {</span><br>
+                          </span>
+                          <span class="line">
+                            <span class="master">
+                              <span>e.preventDefault();</span>
+                              <br><br>
+                              <span>formData <span class="red">=</span> {</span>
+                              <br>
+                              <span class="ident">hashtag : <span class="red">$</span>.trim(<span class="red">$</span>(<span class="red">this</span>).<span class="red">find</span>(<span class="green">"#txt_hashtag"</span>).val()),</span><br>
+                              <span class="ident">size &nbsp;&nbsp;&nbsp;: <span class="red">$</span>.trim(<span class="red">$</span>(<span class="red">this</span>).<span class="red">find</span>(<span class="green">"#txt_size"</span>).val()),</span><br>
+                              <span class="ident">quantity: <span class="green">Number</span>(<span class="red">$</span>.trim(<span class="red">$</span>(<span class="red">this</span>).<span class="red">find</span>(<span class="green">"#txt_quantity"</span>).val())),</span><br>
+                              <span class="ident">token &nbsp;&nbsp;: <span class="red">$</span>.trim(<span class="red">$</span>(<span class="red">this</span>).<span class="red">find</span>(<span class="green">"#txt_token"</span>).val())</span><br>
+                              </span><!-- end master  -->
+                              <span class="ident">};</span><br><br>
+                              <span class="master line">
+                                <span class="red">$</span>.ajax({<br>
+                                <span class="ident">url&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="green">"https://api.instagram.com/v1/tags/<span id="code-hashtag">vsco</span>/media/recent?access_token=<span id="code-token">1794656714.1677ed0.956c7dfe26ca48efa6c2fc44ae86029a</span>"</span>,</span><br>
+                                <span class="ident">dataType: <span class="green">"jsonp"</span>,</span><br>
+                                <span class="ident"><span class="green">success</span>: <span class="yellow">function</span> (<span class="red">api</span>)</span>{<br>
+                                <span class="inside"><span class="comment">// Your logic here</span></span><br>
+                                <span class="inside"><span class="comment">// E.g: alert when the hashtag doesn't return any photos</span></span><br>
+                                <span class="ident">},</span><br>
+                                <span class="ident"><span class="green">error</span>: <span class="yellow">function</span> (<span class="red">data</span>)</span>{<br>
+                                <span class="inside"><span class="comment">// Handle errors here</span></span><br>
+                                <span class="inside"><span class="comment">// E.g: expired token or conexion errors</span></span><br>
+                                <span class="ident">}</span>
+                              </span>
+                              <span class="master">});</span>
+                              </span>
+                            </span>
+                          <span class="line">});</span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </code>
+            </div>
+          </section>
+
+          <footer>
+            <class class="container">
+              <div class="row">
+                <div class="col-md-6 footer-left">
+                  <ul class="list-inline">
+                    <li><a href="#intro">Intro</a></li>
+                    <li><a href="#demo">Demo</a></li>
+                    <li><a href="#usage">Usage</a></li>
+                  </ul>
+                  <p>Daniel Muñoz</p>
+                </div>
+                <div class="col-md-6 footer-right">
+                  <p><a href="https://ucenfotec.ac.cr/">Universidad CENFOTEC</a> ~ 2015</p>
+                  <p>View on Gitgub <a href="https://github.com/daniielev/instaslider"><img width="40" height="40" src="img/github-icon.png" alt="View this project on Github"></a></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 footer-below">
+                  <hr class="small">
+                  <p>Using Bootstrap, jQuery, HTML5 and CSS3</p>
+                </div>
+              </div>
+            </class>
+          </footer>
         </main>
 
-
-        <div id="slider" class="centered col-md-8"></div>
         <script src="js/jquery-1.11.2.min.js"></script>
         <script src="js/main.js"></script>
     </body>

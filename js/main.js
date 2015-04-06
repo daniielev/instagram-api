@@ -1,9 +1,33 @@
 $(document).ready(function () {
 
     var api_token = "1794656714.1677ed0.956c7dfe26ca48efa6c2fc44ae86029a";
+    var formElem;
 
+    setSlider($("#slider"));
+
+    /*
+    ** Smooth Scroll
+    */
+    $("a[href^='#']").on("click", function (e) {
+        e.preventDefault();
+
+
+        var target = $($(this).attr("href"));
+
+        if (target.length) {
+            $("html, body").animate({
+                scrollTop : target.offset().top
+            }, 1000);
+        }
+    });
+
+    /*
+    ** Get data on changes
+    */
     $("form").submit(function (e) {
         e.preventDefault();
+        formElem = $(this);
+        toggleProcess(formElem);
 
         formData = {
             hashtag : $.trim($(this).find("#txt_hashtag").val()),
@@ -13,8 +37,6 @@ $(document).ready(function () {
             output  : "#output"
         };
 
-        // console.log(formData);
-        disableForm();
         init(formData);
     });
 
@@ -38,65 +60,81 @@ $(document).ready(function () {
                                           .removeClass("alert-hide")
                                           .addClass("alert-show");
                     }
-                    activateForm();
+                    toggleProcess(formElem);
                 }
-
-                $("#fin").text($("#slider").parent().html());
             },
             error   : function (error) {
                 console.log(error);
             }
         });
+
+        $("#code-hashtag").text(formData.hashtag);
+        $("#code-token").text(formData.token);
     }
 
     function getData (api) {
-        var container = $("#slider");
+        var mainContainer = $("#slider"),
+            inner         = mainContainer.find(".carousel-inner");
 
-        container.html("");
+        inner.html("");
 
         $.each(api.data, function (i, val) {
             if (i < formData.quantity) {
-                // console.log(api.data[i].images);
-                var a = $("<a></a>");
                 var img = $("<img class='img-responsive'>");
-
-                // console.log(api.data[i].images[formData.size]);
-
-                a.attr({
-                    href   : api.data[i].link,
-                    target : "_blank"
-                });
-
-                if (formData.size === "thumbnail") {
-                    img.addClass("img-thumbnail");
-                }
+                var divItem = $("<div class='item'></div>");
+                var divCaption = $("<div class='carousel-caption'></div>");
+                var title = $("<h3></h3>");
+                var titleAnchor = $("<a></a>");
 
                 img.attr({
                     src    : api.data[i].images[formData.size].url,
                     width  : api.data[i].images[formData.size].width,
                     height : api.data[i].images[formData.size].height,
-                    alt    : api.data[i].caption.text,
-                    title  : "by @" + api.data[i].user.username
+                    alt    : api.data[i].caption.text
                 });
 
-                a.append(img);
-                container.append(a);
-                // container.append(img);
+                titleAnchor.attr("href", api.data[i].link)
+                           .text("by @" + api.data[i].user.username);
+                title.append(titleAnchor);
+
+
+                divCaption.append(title);
+                divItem.append(img)
+                       .append(divCaption);
+                inner.append(divItem);
+
             } else {
                 return false;
             }
         });
 
-        activateForm();
+        inner.find(".item").first().addClass("active");
+        toggleProcess(formElem);
     }
 
-    function disableForm () {
-        $("form").find("button[type=submit]")
-                 .addClass("")
-                 .prop("disabled", true);
+    function toggleProcess (form) {
+        var btn = form.find("button[type=submit]");
+
+        btn.prop("disabled", !btn.prop("disabled"));
     }
 
-    function activateForm () {
-        $("form").find("button[type=submit]").prop("disabled", false);
+    function setSlider (slider) {
+        var items = slider.find(".item"),
+            btnPrev = slider.find(".left"),
+            btnNext = slider.find(".right");
+
+        var current = slider.find(".active");
+
+        btnPrev.click(function () {
+            current.removeClass("active");
+            current.prev().addClass("active");
+            current = slider.find(".active");
+        });
+
+        btnNext.click(function () {
+            current.removeClass("active");
+            current.next().addClass("active");
+            current = slider.find(".active");
+        });
     }
 });

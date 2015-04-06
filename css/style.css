@@ -2,13 +2,19 @@
     transition: all .5s linear;
 }
 
-.h1, h2, h3, h4, h5, h6, .navbar-brand, .brand-name {
+h1, h2, h3, h4, h5, h6, .navbar-brand, .brand-name {
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
 }
 
-#slider img {
-    margin: .5em;
+a, a:link a:focus {
+    outline: 0;
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 .alert-hide {
@@ -25,7 +31,7 @@
     padding: 50px 0;
     text-align: center;
     color: #fff;
-    background-color: #b84d45;
+    background-color: steelblue;
     background-image: url("../img/bg.png");
 }
 
@@ -33,6 +39,100 @@
     display: block;
     font-size: 50px;
     line-height: 1;
+}
+
+.marquee p {
+    font-size: 15px;
+    padding-top: 15px;
+}
+
+.marquee a {
+    color: #fff;
+}
+
+main section {
+    padding: 40px 0;
+}
+
+#usage {
+    padding-top: 40px;
+}
+
+#slider {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+#slider img {
+    margin: 0 auto;
+}
+
+#slider a {
+    color: #fff;
+}
+
+.blackboard {
+    padding: 0;
+    color: #fff;
+}
+
+.blackboard table {
+    margin: 0;
+    padding: 0;
+    background-color: #222222;
+    font-size: 14px;
+}
+
+.blackboard .line-numbers {
+    color: #4B4B4B;
+    background-color: #222222;
+    border-right: 1px solid #292929;
+    padding: 0 5px;
+}
+
+.blackboard .javascript {
+    text-align: left;
+    padding-left: 10px;
+}
+
+.blackboard span.red {
+    color: #ab875d;
+}
+
+.blackboard span.green {
+    color: #5F9675;
+}
+
+.blackboard span.yellow {
+    color: #C5BF7D;
+}
+
+.blackboard span.ident {
+    padding-left: 25px;
+}
+
+.blackboard span.comment {
+    color: darkgray;
+}
+
+.blackboard span.inside {
+    padding-left: 45px;
+}
+.blackboard span.master {
+    padding-left: 30px;
+    display: block;
+}
+
+footer a {
+    color: #803630;
+}
+
+footer .footer-below {
+    text-align: center;
+}
+
+footer .footer-right {
+    text-align: right;
 }
 
 @media (min-width: 768px) {
@@ -43,8 +143,4 @@
     .marquee .brand-name {
         font-size: 80px;
     }
-}
-
-@media (min-width: 768px) {
-
 }
